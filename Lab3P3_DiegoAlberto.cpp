@@ -23,6 +23,7 @@ void mostrarMenuRecursivo() {
     cout << "==================== MENU PRINCIPAL ====================\n";
     cout << "Seleccione una opcion:\n";
     cout << "1. Secuencia Alternante de Máximos y Mínimos\n";
+    cout << "2. Secuencia Autodescriptiva\n";
     cout << "3. Subarreglo de Suma Máxima\n";
     cout << "0. Salir\n";
     cout << "Opcion: ";
@@ -54,9 +55,38 @@ void mostrarMenuRecursivo() {
 }
 
 // --------------------
-// Ejercicio 1: Número único en arreglo de tamaño 8
+// Ejercicio 1: Secuencia Alternante de Máximos y Mínimos
 // --------------------
+void ejercicio1_secuencia_Alternante() {
+    const int TAM = 7;
+    int arr[TAM];
 
+    cout << "\n--- EJERCICIO 1:Secuencia Alternante de Máximos y Mínimos  ---\n";
+    cout << "Ingrese 7 numeros enteros:\n";
+
+    for (int i = 0; i < TAM; ++i) {
+        cout << "Elemento [" << i << "]: ";
+        cin >> arr[i];
+    }
+
+    bool encontrado = false;
+
+    for (int i = 0; i < TAM ; ++i) {
+        int contador = 0;
+        for (int j = 0; j < TAM; ++j) {
+          //  if (arr[j] == arr[i])
+               // contador++;
+        }
+        if (contador == 1) {
+            cout << "\nNumero unico encontrado: " << arr[i] << endl;
+            encontrado = true;
+        }
+    }
+
+    if (!encontrado) {
+        cout << "\nNo se encontro ningun numero que aparezca exactamente una vez.\n";
+    }
+}
 
 // --------------------
 // Ejercicio 3: Subarreglo de Suma Máxima
@@ -90,5 +120,5 @@ void ejercicio3_mayorSumaConsecutiva3() {
     int n3 = arr[(idxMejor + 2) % TAM];
 
     cout << "\nBloque con mayor suma: [" << n1 << ", " << n2 << ", " << n3 << "]\n";
-    cout << "Suma total: " << mejorSuma << endl;
+    cout << "Suma maxima: " << mejorSuma << endl;
 }
