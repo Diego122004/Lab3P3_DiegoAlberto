@@ -79,13 +79,17 @@ void ejercicio1_secuenciaAlternativa() {
                 int temp = arr[j];
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
-                
+               
             }
             
         }
         
     }
-    cout << TAM;
+   
+    for (int i = 0; i <= TAM; i++) {
+    
+        cout << arr[i];
+    }
     
 
 };
