@@ -1,19 +1,94 @@
-// Lab3P3_DiegoAlberto.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
-//
+
 
 #include <iostream>
+using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+// --- Prototipos ---
+void mostrarMenuRecursivo();
+void ejercicio1_numeroUnico();
+void ejercicio3_mayorSumaConsecutiva3();
+
+// --------------------
+// Función principal
+// --------------------
+int main() {
+    mostrarMenuRecursivo(); // llamada inicial
+    return 0;
 }
 
-// Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
-// Depurar programa: F5 o menú Depurar > Iniciar depuración
+// --------------------
+// Menú recursivo principal
+// --------------------
+void mostrarMenuRecursivo() {
+    cout << "==================== MENU PRINCIPAL ====================\n";
+    cout << "Seleccione una opcion:\n";
+    cout << "1. Secuencia Alternante de Máximos y Mínimos\n";
+    cout << "3. Subarreglo de Suma Máxima\n";
+    cout << "0. Salir\n";
+    cout << "Opcion: ";
 
-// Sugerencias para primeros pasos: 1. Use la ventana del Explorador de soluciones para agregar y administrar archivos
-//   2. Use la ventana de Team Explorer para conectar con el control de código fuente
-//   3. Use la ventana de salida para ver la salida de compilación y otros mensajes
-//   4. Use la ventana Lista de errores para ver los errores
-//   5. Vaya a Proyecto > Agregar nuevo elemento para crear nuevos archivos de código, o a Proyecto > Agregar elemento existente para agregar archivos de código existentes al proyecto
-//   6. En el futuro, para volver a abrir este proyecto, vaya a Archivo > Abrir > Proyecto y seleccione el archivo .sln
+    int opcion;
+    cin >> opcion;
+
+    switch (opcion) {
+    case 1:
+        
+        break;
+    case 2:
+
+        break;
+    case 3:
+        ejercicio3_mayorSumaConsecutiva3();
+        break;
+    case 0:
+        cout << "Saliendo... Gracias.\n";
+        return; // finaliza la recursión
+    default:
+        cout << "Opcion no valida. Intente de nuevo.\n";
+    }
+
+   
+
+    // Llamada recursiva al menú
+    mostrarMenuRecursivo();
+}
+
+// --------------------
+// Ejercicio 1: Número único en arreglo de tamaño 8
+// --------------------
+
+
+// --------------------
+// Ejercicio 3: Subarreglo de Suma Máxima
+// --------------------
+void ejercicio3_mayorSumaConsecutiva3() {
+    const int TAM = 7;
+    int arr[TAM];
+
+    cout << "\n--- EJERCICIO 3: Mayor suma consecutiva de 3 numeros (TAMANIO = 7, circular) ---\n";
+    cout << "Ingrese 7 numeros enteros:\n";
+
+    for (int i = 0; i < TAM; ++i) {
+        cout << "Elemento [" << i << "]: ";
+        cin >> arr[i];
+    }
+
+    int mejorSuma = arr[0] + arr[1] + arr[2];
+    int idxMejor = 0;
+
+    // Recorre todos los posibles bloques de 3 (de forma circular)
+    for (int i = 1; i < TAM; ++i) {
+        int suma = arr[i] + arr[(i + 1) % TAM] + arr[(i + 2) % TAM];
+        if (suma > mejorSuma) {
+            mejorSuma = suma;
+            idxMejor = i;
+        }
+    }
+
+    int n1 = arr[idxMejor];
+    int n2 = arr[(idxMejor + 1) % TAM];
+    int n3 = arr[(idxMejor + 2) % TAM];
+
+    cout << "\nBloque con mayor suma: [" << n1 << ", " << n2 << ", " << n3 << "]\n";
+    cout << "Suma total: " << mejorSuma << endl;
+}
