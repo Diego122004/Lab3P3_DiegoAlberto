@@ -1,17 +1,19 @@
-
+﻿
 
 #include <iostream>
+#include <locale>
 using namespace std;
 
 // --- Prototipos ---
 void mostrarMenuRecursivo();
-void ejercicio1_numeroUnico();
+void ejercicio1_secuenciaAlternativa();
 void ejercicio3_mayorSumaConsecutiva3();
 
 // --------------------
 // Función principal
 // --------------------
 int main() {
+    setlocale(LC_ALL, "spanish");
     mostrarMenuRecursivo(); // llamada inicial
     return 0;
 }
@@ -33,7 +35,7 @@ void mostrarMenuRecursivo() {
 
     switch (opcion) {
     case 1:
-        
+        ejercicio1_secuenciaAlternativa();
         break;
     case 2:
 
@@ -57,36 +59,34 @@ void mostrarMenuRecursivo() {
 // --------------------
 // Ejercicio 1: Secuencia Alternante de Máximos y Mínimos
 // --------------------
-void ejercicio1_secuencia_Alternante() {
+void ejercicio1_secuenciaAlternativa() {
     const int TAM = 7;
     int arr[TAM];
 
-    cout << "\n--- EJERCICIO 1:Secuencia Alternante de Máximos y Mínimos  ---\n";
+    cout << "\n--- EJERCICIO 1: Numero unico en arreglo (TAMANIO = 7) ---\n";
     cout << "Ingrese 7 numeros enteros:\n";
 
     for (int i = 0; i < TAM; ++i) {
         cout << "Elemento [" << i << "]: ";
         cin >> arr[i];
-    }
+    };
+    bool ordenado = false;
+    for (int i = 0; i < TAM && !ordenado; i++) {
 
-    bool encontrado = false;
+        for (int j = 0; j < i; j++) {
+            if (arr[i] < arr[j]) {
+                cout << "I es menor" <<" " << i<< endl;
 
-    for (int i = 0; i < TAM ; ++i) {
-        int contador = 0;
-        for (int j = 0; j < TAM; ++j) {
-          //  if (arr[j] == arr[i])
-               // contador++;
-        }
-        if (contador == 1) {
-            cout << "\nNumero unico encontrado: " << arr[i] << endl;
-            encontrado = true;
-        }
-    }
+            }
+            else if (arr[j] < arr[i]) {
+                cout << "J es menor" << " " << j<< endl;
+            };
+            
+        };
+    };
 
-    if (!encontrado) {
-        cout << "\nNo se encontro ningun numero que aparezca exactamente una vez.\n";
-    }
-}
+};
+
 
 // --------------------
 // Ejercicio 3: Subarreglo de Suma Máxima
