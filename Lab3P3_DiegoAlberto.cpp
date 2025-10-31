@@ -5,6 +5,7 @@
 using namespace std;
 
 // --- Prototipos ---
+// Sirve para poder hacer las funciones abajo del main
 void mostrarMenuRecursivo();
 void ejercicio1_secuenciaAlternativa();
 void ejercicio3_mayorSumaConsecutiva3();
@@ -63,27 +64,29 @@ void ejercicio1_secuenciaAlternativa() {
     const int TAM = 7;
     int arr[TAM];
 
-    cout << "\n--- EJERCICIO 1: Numero unico en arreglo (TAMANIO = 7) ---\n";
+    cout << "\n--- EJERCICIO 1:  (TAMANIO = 7) ---\n";
     cout << "Ingrese 7 numeros enteros:\n";
 
     for (int i = 0; i < TAM; ++i) {
         cout << "Elemento [" << i << "]: ";
         cin >> arr[i];
     };
+   // int temp ;
     bool ordenado = false;
-    for (int i = 0; i < TAM && !ordenado; i++) {
-
-        for (int j = 0; j < i; j++) {
-            if (arr[i] < arr[j]) {
-                cout << "I es menor" <<" " << i<< endl;
-
+    for (int i = 0; i < TAM - 1; i++) {
+        for (int j = 0; j < TAM - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                
             }
-            else if (arr[j] < arr[i]) {
-                cout << "J es menor" << " " << j<< endl;
-            };
             
-        };
-    };
+        }
+        
+    }
+    cout << TAM;
+    
 
 };
 
